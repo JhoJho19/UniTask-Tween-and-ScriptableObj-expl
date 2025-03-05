@@ -11,7 +11,7 @@ namespace UI
 
         private GameProgressManager progressManager;
 
-        private void Start()
+        private void OnEnable()
         {
             progressManager = FindObjectOfType<GameProgressManager>();
             if (progressManager != null)
