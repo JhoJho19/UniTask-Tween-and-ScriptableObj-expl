@@ -6,18 +6,15 @@ using System.Threading;
 
 public class AutoStart : MonoBehaviour
 {
-    NextSceneLoader loader;
+    private NextSceneLoader loader;
+    private GameProgressManager progressManager;
     private CancellationTokenSource cancellationTokenSource;
 
     private void Start()
     {
-        loader = new NextSceneLoader();
+        progressManager = FindObjectOfType<GameProgressManager>();
+        loader = new NextSceneLoader(progressManager);
         cancellationTokenSource = new CancellationTokenSource();
-        GameProgressManager.Instance.LoadProgress();
-
-        if (GameProgressManager.Instance.LvlCount > 1)
-            GameProgressManager.Instance.LvlCount--; // Метод LoadNextScene делает LvlCount++ для загрузки следующей сцены.
-                                                     // Поэтому для корректной загрузки сохраненной сцены, а не следующей за ней, нам необходимо сделать LvlCount-- перед вызовом LoadNextScene().
 
         LoadNextSceneAsync(cancellationTokenSource.Token).Forget();
     }

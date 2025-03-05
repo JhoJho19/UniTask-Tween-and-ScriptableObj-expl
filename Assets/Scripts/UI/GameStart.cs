@@ -8,20 +8,25 @@ namespace UI
 {
     public class GameStart : MonoBehaviour
     {
-        NextSceneLoader loader;
+        private NextSceneLoader loader;
+        private GameProgressManager progressManager;
         private CancellationTokenSource cancellationTokenSource;
 
         private void Start()
         {
-            loader = new NextSceneLoader();
+            progressManager = FindObjectOfType<GameProgressManager>();
+            loader = new NextSceneLoader(progressManager);
             cancellationTokenSource = new CancellationTokenSource();
         }
 
-        public async UniTaskVoid StartTheGame()
+        public void StartGameButton() // сейчас старт игры срабатывает автоматически,
+                                      // но вот метод для случая с наличием стартового меню
         {
-            GameProgressManager.Instance.LoadProgress();
-            GameProgressManager.Instance.LvlCount--; // Метод LoadNextScene делает LvlCount++ для загрузки следующей сцены.
-            // Поэтому для корректной загрузки сохраненной сцены, а не следующей за ней, нам необходимо сделать LvlCount-- перед вызовом LoadNextScene().
+            RestartTheGame().Forget();
+        }
+
+        private async UniTaskVoid StartTheGame()
+        {
             await loader.LoadNextScene(cancellationTokenSource.Token);
         }
 
@@ -32,7 +37,8 @@ namespace UI
 
         private async UniTaskVoid RestartTheGame()
         {
-            GameProgressManager.Instance.LvlCount = 1;
+            progressManager.LvlCount = 1;
+            progressManager.SaveProgress();
             await loader.LoadNextScene(cancellationTokenSource.Token);
         }
 

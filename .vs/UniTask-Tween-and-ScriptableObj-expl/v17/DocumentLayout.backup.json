@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|c:\\unitygames\\unitask-tween-and-scriptableobj-expl\\assets\\scripts\\data\\gameprogressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\gameprogressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\assets\\scripts\\ui\\gamestart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\gamestart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\assets\\scripts\\nonmonobech\\nextsceneloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\nonmonobech\\nextsceneloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\assets\\scripts\\gameplay\\finishlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\finishlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\assets\\scripts\\ui\\scorefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC217BA-ABD1-14F6-6822-C4B1BA526D32}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\scorefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameProgressManager.cs",
+              "DocumentMoniker": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\Data\\GameProgressManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\GameProgressManager.cs",
+              "ToolTip": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\Data\\GameProgressManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\GameProgressManager.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAuwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T21:46:58.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameStart.cs",
+              "DocumentMoniker": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\UI\\GameStart.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameStart.cs",
+              "ToolTip": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\UI\\GameStart.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\GameStart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T20:13:32.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NextSceneLoader.cs",
+              "DocumentMoniker": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\NonMonobech\\NextSceneLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NonMonobech\\NextSceneLoader.cs",
+              "ToolTip": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\NonMonobech\\NextSceneLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NonMonobech\\NextSceneLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T20:28:00.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FinishLogic.cs",
+              "DocumentMoniker": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\Gameplay\\FinishLogic.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\FinishLogic.cs",
+              "ToolTip": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\Gameplay\\FinishLogic.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\FinishLogic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T20:13:09.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ScoreField.cs",
+              "DocumentMoniker": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\UI\\ScoreField.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ScoreField.cs",
+              "ToolTip": "C:\\UnityGames\\UniTask-Tween-and-ScriptableObj-expl\\Assets\\Scripts\\UI\\ScoreField.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ScoreField.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T20:32:13.253Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

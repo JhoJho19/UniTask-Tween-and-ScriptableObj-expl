@@ -8,13 +8,18 @@ namespace NonMonobech
 {
     public class NextSceneLoader
     {
+        private GameProgressManager progressManager;
+
+        public NextSceneLoader(GameProgressManager progressManager)
+        {
+            this.progressManager = progressManager;
+        }
+
         public async UniTask LoadNextScene(CancellationToken cancellationToken)
         {
-            int nextScene = GameProgressManager.Instance.LvlCount++;
-
-            if (nextScene <= SceneManager.sceneCountInBuildSettings) // если текущая сцена не является последней - загружаем следующую
+            if (progressManager.LvlCount <= SceneManager.sceneCountInBuildSettings)
             {
-                AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nextScene);
+                AsyncOperation loadOperation = SceneManager.LoadSceneAsync(progressManager.LvlCount);
                 loadOperation.allowSceneActivation = false;
 
                 while (!loadOperation.isDone)
@@ -28,7 +33,6 @@ namespace NonMonobech
 
                     if (cancellationToken.IsCancellationRequested)
                     {
-                        GameProgressManager.Instance.LvlCount--;
                         return;
                     }
                 }

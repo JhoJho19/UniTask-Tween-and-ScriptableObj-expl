@@ -1,11 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
+using UI;
 
 public class UiShowAndHide : MonoBehaviour
 {
     [SerializeField] RectTransform uiImage;
 
-    private bool isUiImageyisible = false;
+    private bool isUiImageVisible = false;
 
     void Start()
     {
@@ -14,14 +15,20 @@ public class UiShowAndHide : MonoBehaviour
 
     public void UIShowOrHide()
     {
-        if (isUiImageyisible)
+        if (isUiImageVisible)
         {
             uiImage.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         }
         else
         {
             uiImage.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            FindObjectOfType<ScoreField>().UpdateCoinCounterText();
         }
-        isUiImageyisible = !isUiImageyisible;
+        isUiImageVisible = !isUiImageVisible;
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
     }
 }

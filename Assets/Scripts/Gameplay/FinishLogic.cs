@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using Cysharp.Threading.Tasks;
 using NonMonobech;
 using System.Threading;
+using Data;
 
 namespace Gameplay
 {
@@ -11,12 +12,14 @@ namespace Gameplay
         public UnityEvent Finish;
         [SerializeField] private ParticleSystem[] particleSystemFirework;
         [SerializeField] AudioSource audioSource;
-        private NextSceneLoader _nextSceneLoader;
+        private NextSceneLoader nextSceneLoader;
+        private GameProgressManager progressManager;
         private CancellationTokenSource cancellationTokenSource;
 
         private void Start()
         {
-            _nextSceneLoader = new NextSceneLoader();
+            progressManager = FindObjectOfType<GameProgressManager>();
+            nextSceneLoader = new NextSceneLoader(progressManager);
             cancellationTokenSource = new CancellationTokenSource();
         }
 
@@ -42,7 +45,9 @@ namespace Gameplay
         private async UniTaskVoid WaitAndLoad(float time, CancellationToken cancellationToken)
         {
             await UniTask.Delay((int)(time * 1000), cancellationToken: cancellationToken);
-            await _nextSceneLoader.LoadNextScene(cancellationToken);
+            progressManager.LvlCount++;
+            progressManager.SaveProgress();
+            await nextSceneLoader.LoadNextScene(cancellationToken);
         }
 
         private void OnDestroy()

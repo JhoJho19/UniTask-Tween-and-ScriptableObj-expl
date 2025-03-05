@@ -9,7 +9,6 @@ namespace Data
 {
     public class GameProgressManager : MonoBehaviour
     {
-        public static GameProgressManager Instance { get; private set; }
         public UnityEvent OnIncrementScore;
         public UnityEvent OnDecrementScore;
 
@@ -23,17 +22,8 @@ namespace Data
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-
             savePath = Application.persistentDataPath + "/gameProgress.json";
+            LoadProgress();
         }
 
         private void Start()
@@ -52,9 +42,7 @@ namespace Data
             {
                 LvlCount = LvlCount,
                 GoldCoinCounter = GoldCoinCounter,
-                SilverCoinCounter = SilverCoinCounter, // Added this line
-                IndexOfPlayerSkin = IndexOfPlayerSkin,
-                ListOfSkins = ListOfSkins
+                SilverCoinCounter = SilverCoinCounter,
             };
 
             string json = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
@@ -71,8 +59,6 @@ namespace Data
                 LvlCount = data.LvlCount;
                 GoldCoinCounter = data.GoldCoinCounter;
                 SilverCoinCounter = data.SilverCoinCounter;
-                IndexOfPlayerSkin = data.IndexOfPlayerSkin;
-                ListOfSkins = data.ListOfSkins;
             }
             else
             {
@@ -115,8 +101,6 @@ namespace Data
     {
         public int LvlCount;
         public int GoldCoinCounter;
-        public int SilverCoinCounter; // Added this line
-        public int IndexOfPlayerSkin;
-        public List<bool> ListOfSkins;
+        public int SilverCoinCounter;
     }
 }

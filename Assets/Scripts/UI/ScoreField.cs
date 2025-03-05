@@ -9,31 +9,34 @@ namespace UI
         [SerializeField] TextMeshProUGUI goldCounter;
         [SerializeField] TextMeshProUGUI silverCounter;
 
-        private void OnEnable()
+        private GameProgressManager progressManager;
+
+        private void Start()
         {
-            UpdateCoinCounterText();
-            if (GameProgressManager.Instance != null)
+            progressManager = FindObjectOfType<GameProgressManager>();
+            if (progressManager != null)
             {
-                GameProgressManager.Instance.OnIncrementScore.AddListener(UpdateCoinCounterText);
-                GameProgressManager.Instance.OnDecrementScore.AddListener(UpdateCoinCounterText);
+                progressManager.OnIncrementScore.AddListener(UpdateCoinCounterText);
+                progressManager.OnDecrementScore.AddListener(UpdateCoinCounterText);
             }
+            UpdateCoinCounterText();
         }
 
         private void OnDisable()
         {
-            if (GameProgressManager.Instance != null)
+            if (progressManager != null)
             {
-                GameProgressManager.Instance.OnIncrementScore.RemoveListener(UpdateCoinCounterText);
-                GameProgressManager.Instance.OnDecrementScore.RemoveListener(UpdateCoinCounterText);
+                progressManager.OnIncrementScore.RemoveListener(UpdateCoinCounterText);
+                progressManager.OnDecrementScore.RemoveListener(UpdateCoinCounterText);
             }
         }
 
         public void UpdateCoinCounterText()
         {
-            if (GameProgressManager.Instance != null)
+            if (progressManager != null)
             {
-                goldCounter.text = GameProgressManager.Instance.GoldCoinCounter.ToString();
-                silverCounter.text = GameProgressManager.Instance.SilverCoinCounter.ToString();
+                goldCounter.text = progressManager.GoldCoinCounter.ToString();
+                silverCounter.text = progressManager.SilverCoinCounter.ToString();
             }
         }
     }

@@ -1,7 +1,5 @@
 using Data;
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +8,13 @@ namespace Gameplay
     public class DeathZoneLogic : MonoBehaviour
     {
         public UnityEvent OnDeathZone;
+        private GameProgressManager progressManager;
+
+        private void Start()
+        {
+            progressManager = FindObjectOfType<GameProgressManager>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
@@ -23,18 +28,21 @@ namespace Gameplay
             MeshRenderer otherRenderer = other.GetComponent<MeshRenderer>();
             otherRenderer.enabled = false;
 
-            BallController ballController = other.gameObject.GetComponent<BallController>();
+            BallController ballController = other.GetComponent<BallController>();
             ballController.enabled = false;
 
-            if (other.gameObject.GetComponent<ParticleSystem>() != null)
-                other.gameObject.GetComponent<ParticleSystem>().Play();
+            ParticleSystem ps = other.GetComponent<ParticleSystem>();
+            if (ps != null)
+                ps.Play();
 
-            other.gameObject.transform.position = new Vector3(0, 0.65f, -10);
+            other.transform.position = new Vector3(0, 0.65f, -10);
             otherRenderer.enabled = true;
             ballController.enabled = true;
             OnDeathZone.Invoke();
             yield return new WaitForSeconds(0.5f);
-            GameProgressManager.Instance.SaveProgress();
+
+            //if (progressManager != null)
+            //    progressManager.SaveProgress();
         }
     }
 }

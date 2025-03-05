@@ -2,7 +2,7 @@ using Data;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gameplay 
+namespace Gameplay
 {
     public class CollectableObjBehavior : MonoBehaviour
     {
@@ -16,6 +16,13 @@ namespace Gameplay
         public UnityEvent OnCoinReset;
         private bool _isCoinTaken;
 
+        private GameProgressManager progressManager;
+
+        private void Awake()
+        {
+            progressManager = FindObjectOfType<GameProgressManager>();
+        }
+
         private void OnEnable()
         {
             collectableObjRenderer.material = collectableObjData.Material;
@@ -27,6 +34,15 @@ namespace Gameplay
             }
         }
 
+        private void OnDisable()
+        {
+            DeathZoneLogic deathZone = FindObjectOfType<DeathZoneLogic>();
+            if (deathZone != null)
+            {
+                deathZone.OnDeathZone.RemoveListener(Restart);
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (!_isCoinTaken && other.gameObject.layer == LayerMask.NameToLayer("Ball"))
@@ -34,7 +50,7 @@ namespace Gameplay
                 CoinAnimator.SetTrigger("CoinTaked");
                 soundOfTakenCoin.Play();
 
-                if (collectableObjData.Type == CollectableObjectType.SilverCoin) 
+                if (collectableObjData.Type == CollectableObjectType.SilverCoin)
                 {
                     takenSilverCoinEffect.Play();
                 }
@@ -43,12 +59,12 @@ namespace Gameplay
                     takenGoldCoinEffect.Play();
                 }
 
-                if (GameProgressManager.Instance != null)
+                if (progressManager != null)
                 {
                     if (collectableObjData.Type == CollectableObjectType.GoldCoin)
-                        GameProgressManager.Instance.IncrementGold();
+                        progressManager.IncrementGold();
                     else if (collectableObjData.Type == CollectableObjectType.SilverCoin)
-                        GameProgressManager.Instance.IncrementSilver();
+                        progressManager.IncrementSilver();
                 }
                 else
                 {
@@ -61,14 +77,14 @@ namespace Gameplay
 
         private void Restart()
         {
-            if (_isCoinTaken) 
+            if (_isCoinTaken)
             {
-                if (GameProgressManager.Instance != null)
+                if (progressManager != null)
                 {
                     if (collectableObjData.Type == CollectableObjectType.GoldCoin)
-                        GameProgressManager.Instance.DecrementGold();
+                        progressManager.DecrementGold();
                     else if (collectableObjData.Type == CollectableObjectType.SilverCoin)
-                        GameProgressManager.Instance.DecrementSilver();
+                        progressManager.DecrementSilver();
                 }
                 else
                 {
